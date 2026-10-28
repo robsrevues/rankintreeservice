@@ -9,7 +9,7 @@ export const site = {
   // TODO: replace with your CallRail numbers before pointing the domain here.
   // `main` is used site-wide; city pages use their own number when set.
   phones: {
-    main: { display: '(601) 000-0000', tel: '+16010000000' },
+    main: { display: '(601) 557-2781', tel: '+16015572781' },
     brandon: null as null | { display: string; tel: string },
     pearl: null as null | { display: string; tel: string },
     flowood: null as null | { display: string; tel: string },

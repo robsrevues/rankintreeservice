@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ServiceGrid from '../components/ServiceGrid.astro';
+import AreaList from '../components/AreaList.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const faqs = [
+  { q: 'How long does a tree removal take?', a: 'Most single-tree removals at a house take a few hours. A large pine that has to be taken down in sections over a roof, or a job with several trees, can take a full day.' },
+  { q: 'Will you take all the wood away?', a: 'Haul-off is normally included. If you\'d like to keep firewood-length rounds, say so when you get your estimate and the crew will cut and stack them for you.' },
+  { q: 'Do I need a permit to remove a tree on my property?', a: 'Usually not for a tree in a residential yard, but rules vary by city and some neighborhoods have HOA covenants about trees. If you\'re in a subdivision with an HOA, it\'s worth a quick check before the work is scheduled.' },
+  { q: 'Can you remove a tree that\'s close to my house or a power line?', a: 'Yes, that\'s most of the work. Trees near houses are taken down in pieces and lowered by rope so nothing drops on the roof. If the tree touches the main power lines on the street, the utility has to make it safe first. The line running from the pole to your house is a different situation, so mention it when you call.' },
+  { q: 'Does removal include the stump?', a: 'The tree is cut close to the ground. Grinding the stump out is a separate line on the quote, and it\'s usually cheapest to do it in the same visit. See <a href="/stump-grinding/">stump grinding</a>.' },
+];
+---
+<Base
+  title="Tree Removal in Rankin County, MS | Brandon, Pearl, Flowood | Free Estimates"
+  description="Safe tree removal for dead, leaning, and hazardous trees in Brandon, Pearl, Flowood, and across Rankin County, MS. Rope-down near houses, full cleanup, free estimates."
+>
+  <Hero
+    h1="Tree Removal in Rankin County, MS"
+    lead="Dead, leaning, storm-damaged, or just in the way. Trees taken down safely, even right next to the house, with full cleanup and a free estimate before any work starts."
+    crumb={{ href: '/tree-removal/', name: 'Tree removal' }}
+  />
+
+  <div class="wrap content narrow">
+    <h2>What's included</h2>
+    <ul class="checks">
+      <li>A free estimate, on site or from your photos</li>
+      <li>Cutting the tree down in sections when it's near a house, fence, or shop</li>
+      <li>Rope lowering so limbs don't drop on the roof, gutters, or landscaping</li>
+      <li>Cutting the trunk close to the ground</li>
+      <li>Hauling off the wood, limbs, and debris, and a final raking and blow-off</li>
+      <li>Optional: stump grinding, or firewood cut and stacked if you want to keep it</li>
+    </ul>
+
+    <h2>When a tree should come down</h2>
+    <p>Not every unhealthy-looking tree needs to go. Plenty can be fixed with <a href="/tree-trimming/">trimming</a>. A tree is usually better off removed when:</p>
+    <ul class="checks">
+      <li><strong>It's dead or mostly dead.</strong> Dead pines dry out and get brittle fast, and the top can snap without warning.</li>
+      <li><strong>It's leaning more than it used to.</strong> A new lean, especially with cracked or lifted soil on the opposite side, means the roots are failing.</li>
+      <li><strong>The trunk is compromised.</strong> Deep splits, large hollow cavities, and fungus at the base all point to rot you can't see.</li>
+      <li><strong>It's a hazard to something you can't replace cheaply,</strong> like the house, a car, a pool, or the neighbor's roof.</li>
+      <li><strong>It's in the way of a project:</strong> an addition, a driveway, a pool, a shop, or a garden that needs sun.</li>
+    </ul>
+
+    <h2>Pines, water oaks, and what we see most</h2>
+    <p>Around Rankin County, the two trees we're asked about most are tall pines and big water oaks.</p>
+    <p><strong>Pines</strong> grow tall and straight, and a lot of neighborhoods were built around ones that were already there. They don't give much warning before they fail. Watch for a thinning, browning crown, bark falling off in sheets, or small pitch tubes on the trunk, which point to bark beetles. A beetle-killed pine should come down sooner rather than later.</p>
+    <p><strong>Water oaks</strong> grow fast and shade a lot of yard, but they're short-lived by oak standards and often rot from the inside. Big limbs dropping on a calm day is the classic sign.</p>
+
+    <h2>How the job goes</h2>
+    <ol class="steps">
+      <li><strong>Estimate.</strong> We look at the tree, what's under it, and how to get equipment to it, then give you a price.</li>
+      <li><strong>Takedown.</strong> Open-yard trees can be felled in one piece. Trees near structures come down in sections from the top.</li>
+      <li><strong>Cleanup.</strong> Brush is chipped or hauled, wood is removed or stacked, and the area is raked and blown off.</li>
+    </ol>
+
+    <h2>Other tree services</h2>
+    <ServiceGrid exclude="/tree-removal/" />
+
+    <h2>Tree removal across Rankin County</h2>
+    <AreaList />
+
+    <Faq items={faqs} />
+    <CtaBand heading="Have a tree you're worried about?" text="Call for a free estimate. If you can, have a couple of photos ready that show the whole tree and what's around it." />
+  </div>
+</Base>

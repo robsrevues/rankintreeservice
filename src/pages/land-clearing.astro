@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ServiceGrid from '../components/ServiceGrid.astro';
+import AreaList from '../components/AreaList.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const faqs = [
+  { q: 'How is land clearing priced?', a: 'Usually by the acre or by the job, depending on how thick the growth is, the size of the trees, the terrain, and what happens to the debris. Light brush on flat ground costs far less than a wooded lot with mature pines. A site visit is the only way to get a firm number.' },
+  { q: 'Is the timber worth anything?', a: 'Sometimes. A stand of mature pine can have timber value, and a forester can tell you whether it\'s worth selling before the lot is cleared. Scattered trees and mixed hardwood on a house lot usually aren\'t.' },
+  { q: 'What happens to the cleared trees and brush?', a: 'They can be hauled off, mulched on site, or in some rural areas piled and burned under a permit. The right answer depends on where you are and what you\'re building.' },
+  { q: 'Can you clear just underbrush and keep the big trees?', a: 'Yes. Selective clearing, taking out brush, vines, and small trees while keeping the good hardwoods and pines, is a common request for home sites and wooded backyards.' },
+];
+---
+<Base
+  title="Lot and Land Clearing in Rankin County, MS | Brush & Tree Clearing | Free Estimates"
+  description="Lot clearing, brush removal, and land clearing for home sites, pastures, and fence lines in Brandon, Florence, Pelahatchie, and across Rankin County, MS."
+>
+  <Hero
+    h1="Lot and Land Clearing in Rankin County, MS"
+    lead="Overgrown lots, home sites, fence lines, and brushy acreage cleared for building, pasture, or a usable yard again. Full clearing or selective, keeping the trees worth keeping."
+    crumb={{ href: '/land-clearing/', name: 'Lot and land clearing' }}
+  />
+
+  <div class="wrap content narrow">
+    <h2>Common clearing jobs</h2>
+    <ul class="checks">
+      <li><strong>Home sites:</strong> clearing a pad and driveway path on a wooded lot before construction</li>
+      <li><strong>Overgrown lots:</strong> taking a lot that's gone to brush, briars, and saplings back to open ground</li>
+      <li><strong>Selective clearing:</strong> removing underbrush and small trees while keeping mature ones</li>
+      <li><strong>Fence lines:</strong> clearing growth along fences so they can be repaired, replaced, or just seen</li>
+      <li><strong>Pasture recovery:</strong> pushing back pine and hardwood that have crept into fields</li>
+      <li><strong>Shop and pool sites:</strong> clearing space for an outbuilding, pool, or garden</li>
+    </ul>
+
+    <h2>Why it's big in Rankin County</h2>
+    <p>Rankin County keeps growing. New houses go up on wooded lots, and buyers carve home sites out of family land outside Brandon, Florence, Pelahatchie, and Star. A lot of that land is pine and mixed hardwood that's been growing untouched for years. Getting it ready to build is usually the first job after the land is bought.</p>
+
+    <h2>Methods</h2>
+    <p><strong>Forestry mulching</strong> grinds brush and small trees into mulch right where they stand. There's no hauling and no burn piles, and the ground is left covered, which helps with erosion. It's a good fit for underbrush and selective clearing.</p>
+    <p><strong>Traditional clearing</strong> uses saws and heavy equipment to fell trees, pull stumps, and haul or pile the debris. It's the right choice when a site needs to be fully grubbed for a slab, driveway, or pond.</p>
+
+    <h2>Things to sort out first</h2>
+    <ul class="checks">
+      <li>Mark your property lines. Clearing past them is an expensive mistake.</li>
+      <li>Call Mississippi 811 before any stump pulling or grading.</li>
+      <li>If you're building in a subdivision, check covenants for rules on tree removal.</li>
+      <li>If the land has mature pine, talk to a forester about timber value before clearing.</li>
+      <li>Ask about erosion control on sloped lots, especially near creeks and ponds.</li>
+    </ul>
+
+    <h2>Other tree services</h2>
+    <ServiceGrid exclude="/land-clearing/" />
+
+    <h2>Land clearing across Rankin County</h2>
+    <AreaList />
+
+    <Faq items={faqs} />
+    <CtaBand heading="Have a lot that needs clearing?" text="Call with the rough acreage, the location, and what you're planning to build or use it for." />
+  </div>
+</Base>

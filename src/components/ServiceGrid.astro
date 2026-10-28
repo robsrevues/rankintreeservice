@@ -1,0 +1,15 @@
+---
+import { services } from '../config';
+
+interface Props { exclude?: string }
+const { exclude } = Astro.props;
+const list = services.filter((s) => s.href !== exclude);
+---
+<div class="grid">
+  {list.map((s) => (
+    <a class="card" href={s.href}>
+      <strong>{s.name}</strong>
+      <span>{s.blurb}</span>
+    </a>
+  ))}
+</div>

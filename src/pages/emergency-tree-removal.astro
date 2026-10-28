@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ServiceGrid from '../components/ServiceGrid.astro';
+import AreaList from '../components/AreaList.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const faqs = [
+  { q: 'Will homeowners insurance pay for a tree that fell on my house?', a: 'Often, yes, when a tree damages a covered structure like the house, a garage, or a fence. Policies usually limit what they\'ll pay for removing a tree that fell and hit nothing. Every policy is different, so call your agent, and keep the photos and the invoice for your claim.' },
+  { q: 'A tree fell on the power line. Can you remove it?', a: 'Not until the power company has made the line safe. Call Entergy or your electric cooperative first. Once the line is dead or cleared, the tree can be removed.' },
+  { q: 'Should I try to cut it myself?', a: 'A tree that\'s fallen against something is under tension, and it can spring or roll when cut. Leave trees on houses, cars, or other trees to a crew with rigging. Small limbs on open ground are a different story.' },
+  { q: 'Can you put a tarp on the roof?', a: 'Ask when you call. Getting the tree off is the first step, and covering the opening comes right after so rain doesn\'t do more damage.' },
+];
+---
+<Base
+  title="Emergency Tree Removal in Rankin County, MS | Storm Damage Cleanup"
+  description="Tree on your house, car, or driveway after a storm? Emergency tree removal and storm cleanup in Brandon, Pearl, Flowood, and across Rankin County, MS."
+>
+  <Hero
+    h1="Emergency and Storm Tree Removal in Rankin County"
+    lead="A tree on the roof, a car, the fence, or across the driveway. Call, tell us what happened, and get a crew lined up to get it off safely and clean up."
+    crumb={{ href: '/emergency-tree-removal/', name: 'Storm and emergency removal' }}
+  />
+
+  <div class="wrap content narrow">
+    <h2>First, make it safe</h2>
+    <ul class="checks">
+      <li><strong>Stay clear of downed lines.</strong> If a tree is touching a power line, treat the line as live and call the power company before anything else.</li>
+      <li><strong>Get people out of rooms under the tree.</strong> A tree resting on a roof can shift as the wind keeps blowing.</li>
+      <li><strong>Take photos</strong> of the tree and the damage from several angles before anything is moved. Your insurance company will want them.</li>
+      <li><strong>Call your insurance agent</strong> to open a claim if a structure or vehicle was hit.</li>
+      <li><strong>Then call us</strong> with a short description: where the tree is, what it hit, and roughly how big it is.</li>
+    </ul>
+
+    <h2>What we handle after a storm</h2>
+    <ul class="checks">
+      <li>Trees and large limbs on roofs, carports, sheds, and shops</li>
+      <li>Trees across driveways and blocking the only way out</li>
+      <li>Trees on fences, vehicles, and outbuildings</li>
+      <li>Snapped-out tops and "hangers," broken limbs caught in the canopy</li>
+      <li>Uprooted trees and the root plates they leave behind</li>
+      <li>Storm debris cleanup once the hazards are down</li>
+    </ul>
+
+    <h2>Why storm work is different</h2>
+    <p>A fallen tree isn't a normal removal. Wood that's pinned, bent, or resting on a roof is loaded like a spring, and cutting it in the wrong place can drop it further into the house or kick it back at whoever's cutting. Storm jobs usually take rigging, lowering lines, and sometimes a crane for big pines on houses. That's also why they can cost more than a planned removal. See the <a href="/tree-removal-cost/">cost guide</a> for what drives the price.</p>
+
+    <h2>After the big storms, crews get booked fast</h2>
+    <p>When a line of storms or a tropical system rolls through central Mississippi, every crew in the county gets calls at once. Trees on houses and blocked driveways go first. If your tree is down in the yard and not touching anything, it may be a few days. Call anyway so you're on the list.</p>
+    <p>The best storm prep is having questionable trees looked at in calm weather. A dead pine near the house is a lot cheaper to remove before it falls.</p>
+
+    <h2>Other tree services</h2>
+    <ServiceGrid exclude="/emergency-tree-removal/" />
+
+    <h2>Storm cleanup across Rankin County</h2>
+    <AreaList />
+
+    <Faq items={faqs} />
+    <CtaBand heading="Tree down? Call now." text="Tell us where it is and what it hit, and we'll get a crew lined up." />
+  </div>
+</Base>

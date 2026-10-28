@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ServiceGrid from '../components/ServiceGrid.astro';
+import AreaList from '../components/AreaList.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const faqs = [
+  { q: 'How much does tree removal cost in Rankin County?', a: 'It depends mostly on the tree\'s size and how close it is to the house, fences, or power lines. A small tree in an open yard costs a fraction of a tall pine leaning over a roof. Our <a href="/tree-removal-cost/">cost guide</a> lays out typical ranges and what pushes a price up.' },
+  { q: 'Is the estimate really free?', a: 'Yes. Call or send a few photos, and you\'ll get a price before any work starts.' },
+  { q: 'Do you handle storm damage?', a: 'Yes. If a tree or large limb is down on a roof, car, fence, or driveway, call and describe what happened. See <a href="/emergency-tree-removal/">storm and emergency removal</a> for what to do while you wait.' },
+  { q: 'Do you grind the stump too?', a: 'Stump grinding can be added to any removal, or booked on its own for stumps that are already there. Ask for it when you call so it\'s in the quote.' },
+  { q: 'What parts of Rankin County do you cover?', a: 'Brandon, Pearl, Flowood, Richland, Florence, Pelahatchie, Puckett, Star, Sandhill, and the unincorporated areas around them, including the Reservoir side of the county.' },
+];
+---
+<Base
+  title="Tree Service in Rankin County, MS | Removal, Trimming & Stumps | Free Estimates"
+  description="Tree removal, trimming, stump grinding, and storm cleanup in Brandon, Pearl, Flowood, and across Rankin County, MS. Call for a free estimate."
+>
+  <Hero
+    h1="Tree Service in Rankin County, MS"
+    lead="Tree removal, trimming, stump grinding, and storm cleanup for homes in Brandon, Pearl, Flowood, and the rest of Rankin County. One call gets you a local crew and a free estimate."
+  />
+
+  <div class="wrap content">
+    <div class="narrow">
+      <h2>What we do</h2>
+      <p>Most calls start the same way: a tree that's dead, leaning, dropping limbs, or just too close to the house. Whatever the job, the goal is to take care of it safely, clean up completely, and give you a straight price up front.</p>
+    </div>
+    <ServiceGrid />
+
+    <div class="narrow">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li><strong>Call or send photos.</strong> Tell us what the tree is doing and where it is. Pictures from a few angles help.</li>
+        <li><strong>Get a free estimate.</strong> A crew member looks at the job, on site or from your photos, and gives you a price.</li>
+        <li><strong>Job done and cleaned up.</strong> The tree comes down, the wood and debris get hauled off, and the yard is left clean.</li>
+      </ol>
+
+      <h2>Trees around here</h2>
+      <p>Rankin County is pine country with plenty of oaks, sweetgums, and water oaks mixed in. Tall loblolly pines planted close to houses decades ago are behind a lot of our calls. So are water oaks, which grow fast, rot from the inside, and tend to drop big limbs as they age.</p>
+      <p>Spring and summer storms push saturated trees over and snap tops out of pines. Tropical systems coming up from the Gulf can do the same. If you've got a tree you've been watching through every storm, that's usually the one to have looked at before the next one.</p>
+
+      <h2>Signs a tree needs attention</h2>
+      <ul class="checks">
+        <li>It's dead or has dead branches in the top of the crown</li>
+        <li>It's started leaning, or the soil at the base is heaving or cracking</li>
+        <li>There's a split in the trunk, a hollow cavity, or mushrooms at the base</li>
+        <li>Limbs hang over the roof, rub the siding, or touch the service line to the house</li>
+        <li>Roots are lifting the driveway, a walkway, or the foundation edge</li>
+        <li>A pine is losing needles out of season or has pitch tubes (signs of beetles)</li>
+      </ul>
+
+      <h2>Areas we serve</h2>
+      <p>We cover all of Rankin County. Pick your town for local details:</p>
+      <AreaList />
+
+      <Faq items={faqs} />
+      <CtaBand />
+    </div>
+  </div>
+</Base>

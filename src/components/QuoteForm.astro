@@ -1,0 +1,29 @@
+---
+import { site } from '../config';
+const phone = site.phones.main;
+---
+{site.formEndpoint ? (
+  <form class="quote-form" action={site.formEndpoint} method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="_subject" value="New tree quote request — rankintreeservice.com" />
+    <label>Your name
+      <input name="name" autocomplete="name" required />
+    </label>
+    <label>Phone
+      <input name="phone" type="tel" autocomplete="tel" required />
+    </label>
+    <label>Street address or nearest cross street
+      <input name="address" autocomplete="street-address" />
+      <small>So the crew knows which part of the county you're in.</small>
+    </label>
+    <label>What do you need done?
+      <textarea name="details" rows="4" required placeholder="e.g. Large dead pine leaning toward the house, about 60 feet tall."></textarea>
+    </label>
+    <label>Photos (optional)
+      <input name="photos" type="file" accept="image/*" multiple />
+    </label>
+    <button class="btn-call" type="submit">Send my request</button>
+  </form>
+) : (
+  <p>Online requests are coming soon. For now, the fastest way to a quote is to call
+  <a href={`tel:${phone.tel}`}>{phone.display}</a>.</p>
+)}

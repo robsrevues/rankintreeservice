@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ServiceGrid from '../components/ServiceGrid.astro';
+import AreaList from '../components/AreaList.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site } from '../config';
+
+const phone = site.phones.pearl ?? site.phones.main;
+
+const faqs = [
+  { q: 'My lot is small and the tree is between my house and my neighbor\'s. Can it still come down?', a: 'Yes. Tight lots are common in Pearl\'s older neighborhoods. Trees with no room to fall are taken down in small sections and lowered by rope. If limbs hang over the neighbor\'s yard, it helps to let them know before the crew arrives.' },
+  { q: 'Who handles trees touching the power lines in Pearl?', a: 'The utility handles limbs on the main lines along the street. For the line running from the pole to your house, a tree crew can clear it, but let us know about it when you call.' },
+  { q: 'Do you work in Patrick Farms and Country Place?', a: 'Yes, along with every other Pearl neighborhood. For lakefront and golf course lots, tell us how the crew can reach the tree so they bring the right equipment.' },
+  { q: 'Can I just put the debris out for curbside pickup?', a: 'Curbside yard-waste pickup is generally meant for normal yard debris, not a whole tree. For a removal, plan on the crew hauling the wood and brush unless you\'re keeping it.' },
+];
+---
+<Base
+  title="Tree Service in Pearl, MS | Tree Removal, Trimming & Stumps | Free Estimates"
+  description="Tree removal, trimming, stump grinding, and storm cleanup in Pearl, MS, from Patrick Farms and Country Place to the older neighborhoods off Old Brandon Road. Free estimates."
+  phone={phone}
+>
+  <Hero
+    h1="Tree Service in Pearl, MS"
+    lead="Tree removal, trimming, stump grinding, and storm cleanup in every part of Pearl, from the older streets near the river to Patrick Farms, Country Place, and the newer subdivisions."
+    crumb={{ href: '/pearl-ms/', name: 'Pearl' }}
+    phone={phone}
+  />
+
+  <div class="wrap content narrow">
+    <h2>Tree work for Pearl homes</h2>
+    <p>Pearl is Rankin County's largest city, with about 28,500 people, and sits just across the Pearl River from downtown Jackson. Many of its neighborhoods have been around for decades, and they tend to have something in common: modest lots, houses close together, and trees that were small when the houses went up and are now very large. That makes most Pearl tree work precision work, taking big trees down in tight spaces without touching the house next door.</p>
+
+    <h2>Neighborhoods we serve in Pearl</h2>
+    <ul class="areas">
+      <li>Patrick Farms</li>
+      <li>Country Place</li>
+      <li>Beechwood Hills</li>
+      <li>Cunningham Heights</li>
+      <li>McLaurin Heights</li>
+      <li>Skyway Hills</li>
+      <li>Eldorado Hills</li>
+      <li>Pine Park</li>
+      <li>Live Oaks Place</li>
+      <li>Greenfield Village</li>
+      <li>Cedar Ridge and Cedar Stone</li>
+      <li>River Ridge</li>
+      <li>Richburg Estates</li>
+      <li>Serenity Lake</li>
+      <li>Silver Ridge</li>
+      <li>Bailey Acres</li>
+    </ul>
+    <p>We also cover the streets off Highway 80, Highway 468, Old Brandon Road, Old Whitfield Road, Bierdeman Road, Fox Hall Road, and Pearson Road, on both sides of I‑20.</p>
+
+    <h2>What we see most in Pearl</h2>
+    <h3>Big trees on small lots</h3>
+    <p>In neighborhoods like Cunningham Heights, McLaurin Heights, Skyway Hills, and Beechwood Hills, pines and water oaks planted a generation or two ago now shade the whole lot. With houses close together, there's rarely room to drop a tree. Most removals here are climb-and-lower jobs, and trimming limbs back off roofs and service lines is a big share of the work.</p>
+    <h3>Lake and golf course lots</h3>
+    <p>Country Place is built around a lake, and Patrick Farms around a golf course. Trees on waterfront and fairway lots are usually reached from the back, and water's edge ground can be soft, so the crew plans equipment and cleanup around it.</p>
+    <h3>Wet ground and uprooted trees</h3>
+    <p>Low-lying ground near the Pearl River and creeks holds water after heavy rain. Trees in saturated soil are much easier for wind to push over, so after a wet spell followed by storms, uprooted trees and leaning pines are common calls.</p>
+    <h3>Stumps from old removals</h3>
+    <p>Plenty of Pearl yards still have stumps from trees taken down years ago. <a href="/stump-grinding/">Stump grinding</a> clears them for mowing, sod, or a new fence line.</p>
+
+    <h2>Tree services in Pearl</h2>
+    <ServiceGrid />
+
+    <Faq items={faqs} heading="Pearl tree service questions" />
+
+    <h2>Nearby areas we serve</h2>
+    <AreaList exclude="pearl-ms" />
+
+    <CtaBand heading="Get a free estimate in Pearl" phone={phone} />
+  </div>
+</Base>

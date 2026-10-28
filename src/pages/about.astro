@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import AreaList from '../components/AreaList.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site } from '../config';
+---
+<Base
+  title="About Rankin Tree Service | How It Works"
+  description="Rankin Tree Service connects homeowners across Rankin County, MS with a local tree crew for removal, trimming, stump grinding, and storm cleanup."
+>
+  <Hero
+    h1="About Rankin Tree Service"
+    lead="One number for tree work anywhere in Rankin County. You call, and a local crew that works your area gives you an estimate and does the job."
+    crumb={{ href: '/about/', name: 'About' }}
+  />
+
+  <div class="wrap content narrow">
+    <h2>How it works</h2>
+    <p>Rankin Tree Service is a local referral service, not a tree company itself. When you call the number on this site or send a request, it goes straight to an independent tree crew that serves your part of the county. They give you the estimate, schedule the work, and do the job. You deal with them directly, and the price you agree on is between you and them.</p>
+    <p>There's no charge to you for using this site. The crew pays to receive calls from it.</p>
+
+    <h2>What you can expect</h2>
+    <ul class="checks">
+      <li>A free estimate before any work starts</li>
+      <li>A straight answer on whether a tree needs trimming or removal</li>
+      <li>Work done by people who do tree work every day in this county</li>
+      <li>Cleanup included in the scope you agree on</li>
+      {site.trust.licensedInsured && <li>A licensed and insured crew. Ask to see the certificate.</li>}
+    </ul>
+
+    <h2>Areas served</h2>
+    <AreaList />
+
+    <CtaBand />
+  </div>
+</Base>

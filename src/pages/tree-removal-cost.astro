@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+// TODO: once a partner crew signs, replace the published figures below with
+// their real price ranges for Rankin County jobs.
+
+const faqs = [
+  { q: 'Why do quotes for the same tree vary so much?', a: 'Different crews have different equipment, insurance costs, and workloads. A crew with a bucket truck or crane may be cheaper on a tall tree near the house because it takes them less time. Compare quotes on what\'s included (haul-off, stump, cleanup) as well as the bottom line.' },
+  { q: 'Is it cheaper to leave the wood?', a: 'Often, yes. Hauling logs and brush is a real part of the cost. If you have a place to put it, or want firewood, ask for a price with the wood left cut and stacked.' },
+  { q: 'Does it cost more after a storm?', a: 'Usually. Storm-damaged trees are tangled, under tension, and often on top of something, so they take more time and rigging. Demand spikes across the county at the same time.' },
+  { q: 'Do I pay before or after the work?', a: 'Get the price and what it includes in writing, by text or email, before work starts. Payment terms vary by crew, but be cautious of anyone wanting full payment up front for a routine job.' },
+];
+---
+<Base
+  title="Tree Removal Cost in Rankin County, MS | What Affects the Price"
+  description="What tree removal, stump grinding, and storm cleanup typically cost around Brandon, Pearl, and Flowood, MS, and the factors that push a price up or down."
+>
+  <Hero
+    h1="Tree Removal Cost in Rankin County, MS"
+    lead="There's no flat price for taking down a tree. Here's what typical jobs run in the Jackson metro, what drives the number up or down, and how to compare quotes."
+    crumb={{ href: '/tree-removal-cost/', name: 'Cost guide' }}
+  />
+
+  <div class="wrap content narrow">
+    <h2>Typical prices in the Jackson metro</h2>
+    <p>Published averages for the area land in the hundreds of dollars for a typical single-tree removal. Big pines over houses and storm work can run well past that.</p>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Job</th><th>Published figure</th><th>Source and area</th></tr></thead>
+        <tbody>
+          <tr><td>Average tree removal</td><td>About $503, typical range $196–$789</td><td>Today's Homeowner, Madison, MS (2025)</td></tr>
+          <tr><td>Tree or shrub removal and trimming</td><td>Average $921, typical range $420–$1,050</td><td>HomeAdvisor, Ridgeland, MS</td></tr>
+          <tr><td>Emergency tree removal</td><td>About $750 on average</td><td>Today's Homeowner, Madison, MS (2025)</td></tr>
+          <tr><td>Stump removal</td><td>About $157 on average</td><td>Today's Homeowner, Madison, MS (2025)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="source">Sources: <a href="https://todayshomeowner.com/near-me/mississippi/madison/tree-removal/" rel="nofollow">Today's Homeowner, Madison MS</a> · <a href="https://www.homeadvisor.com/tloc/Ridgeland-MS/Trees-and-Shrubs-Trim-or-Remove/" rel="nofollow">HomeAdvisor, Ridgeland MS</a>. These are third-party estimates for nearby Madison County cities, not quotes. Your price depends on your tree. A free estimate is the only real number.</p>
+
+    <h2>What drives the price</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Factor</th><th>Why it matters</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Height and trunk size</strong></td><td>Bigger trees mean more cutting, more weight to lower, and more wood to haul.</td></tr>
+          <tr><td><strong>What's under it</strong></td><td>A tree over a roof, pool, or fence comes down piece by piece on ropes. An open-yard tree can often be dropped whole.</td></tr>
+          <tr><td><strong>Access</strong></td><td>Backyards behind narrow gates, steep banks, and soft ground can keep trucks and chippers out, so more is carried by hand.</td></tr>
+          <tr><td><strong>Condition</strong></td><td>Dead and rotten trees are less predictable to climb and cut, and storm-damaged trees are under tension.</td></tr>
+          <tr><td><strong>Power lines</strong></td><td>Limbs tangled in the line to the house slow the job. Main lines need the utility first.</td></tr>
+          <tr><td><strong>Crane work</strong></td><td>Large pines over houses sometimes need a crane, which costs more per hour but can save time and risk.</td></tr>
+          <tr><td><strong>Stump and cleanup</strong></td><td>Stump grinding, hauling the wood, and debris removal are each real costs, so check whether they're in the quote.</td></tr>
+          <tr><td><strong>Number of trees</strong></td><td>Several trees in one visit usually cost less per tree.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>How to compare quotes</h2>
+    <ul class="checks">
+      <li>Make sure each quote covers the same work: the takedown, haul-off of wood and brush, cleanup, and whether the stump is ground.</li>
+      <li>Ask whether the crew carries liability insurance and workers' comp, and ask to see the certificate. If someone gets hurt or your house gets hit, that's what protects you.</li>
+      <li>Get the scope and price in writing before work starts, even if it's a text.</li>
+      <li>Be wary of door-knockers after a storm offering cash deals and asking for money up front.</li>
+    </ul>
+
+    <h2>Ways to save</h2>
+    <ul class="checks">
+      <li>Have questionable trees removed in calm weather instead of waiting for a storm.</li>
+      <li>Bundle several trees, or trimming plus removal, into one visit.</li>
+      <li>Keep the wood if you can use it.</li>
+      <li>Handle the small stuff yourself, like raking leaves or moving yard furniture, before the crew arrives.</li>
+    </ul>
+
+    <Faq items={faqs} />
+    <CtaBand heading="Get a real number for your tree" text="Call or send photos for a free estimate with everything included spelled out." />
+  </div>
+</Base>

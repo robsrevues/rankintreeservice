@@ -1,0 +1,26 @@
+---
+import { site } from '../config';
+
+interface Props {
+  h1: string;
+  lead: string;
+  crumb?: { href: string; name: string };
+  phone?: { display: string; tel: string } | null;
+}
+const { h1, lead, crumb } = Astro.props;
+const phone = Astro.props.phone ?? site.phones.main;
+---
+<section class="hero">
+  <div class="wrap">
+    {crumb && (
+      <p class="crumbs"><a href="/">Home</a> › <a href={crumb.href}>{crumb.name}</a></p>
+    )}
+    <h1>{h1}</h1>
+    <p class="lead">{lead}</p>
+    <div class="hero-actions">
+      <a class="btn-call" href={`tel:${phone.tel}`}>Call {phone.display}</a>
+      <a class="btn-ghost" href="/contact/">Request a free quote</a>
+    </div>
+    <p class="hero-note">Free estimates. Send photos and get a faster answer.</p>
+  </div>
+</section>

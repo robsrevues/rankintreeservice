@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ServiceGrid from '../components/ServiceGrid.astro';
+import AreaList from '../components/AreaList.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site } from '../config';
+
+const phone = site.phones.brandon ?? site.phones.main;
+
+const faqs = [
+  { q: 'Do you work in Castlewoods and the other Reservoir-side neighborhoods?', a: 'Yes. Castlewoods, Bellegrove, and the neighborhoods off Grants Ferry Road and Lake Harbor Road on the north side of Brandon are all in our service area.' },
+  { q: 'My HOA has rules about trees. Does that change anything?', a: 'Some Brandon subdivisions have covenants about removing trees, especially in front yards or common areas. Check with your HOA before scheduling. The crew can give you a written estimate to submit with any approval request.' },
+  { q: 'I live on a golf course lot. Is that a problem?', a: 'No, but access can be. Tell us if the best way to the tree is across the course or through a narrow side yard, so the crew brings the right equipment.' },
+  { q: 'How fast can someone come out in Brandon?', a: 'Brandon is right in the middle of the area we serve, so estimates are usually quick to schedule. After a big storm, trees on houses and blocked driveways go first.' },
+];
+---
+<Base
+  title="Tree Service in Brandon, MS | Tree Removal, Trimming & Stumps | Free Estimates"
+  description="Tree removal, trimming, stump grinding, and storm cleanup in Brandon, MS, from Crossgates to Castlewoods and the Reservoir side. Call for a free estimate."
+  phone={phone}
+>
+  <Hero
+    h1="Tree Service in Brandon, MS"
+    lead="Tree removal, trimming, stump grinding, and storm cleanup across Brandon, from Crossgates on the west side to Castlewoods and the Reservoir neighborhoods up north."
+    crumb={{ href: '/brandon-ms/', name: 'Brandon' }}
+    phone={phone}
+  />
+
+  <div class="wrap content narrow">
+    <h2>Tree work for Brandon homes</h2>
+    <p>Brandon is the Rankin County seat and one of its two biggest cities, with roughly 26,000 people. It's also two different towns when it comes to trees. Established subdivisions like Crossgates and Castlewoods were built among pines and hardwoods decades ago, and those trees are now big, old, and often too close to the house. Newer subdivisions keep going up on cleared land, where the job is more often clearing lots, removing scattered pines, and grinding stumps.</p>
+
+    <h2>Neighborhoods we serve in Brandon</h2>
+    <p>We take calls from all over Brandon's 39042 and 39047 ZIP codes, including:</p>
+    <ul class="areas">
+      <li>Crossgates</li>
+      <li>Hunters Woods of Crossgates</li>
+      <li>Grove Park of Crossgates</li>
+      <li>Pavilions of Crossgates</li>
+      <li>Lakebend</li>
+      <li>Castlewoods</li>
+      <li>Woodlands of Castlewoods</li>
+      <li>Azalea Trails</li>
+      <li>Bellegrove</li>
+      <li>Cannon Ridge</li>
+      <li>Shenandoah</li>
+      <li>Downtown Brandon</li>
+    </ul>
+    <p>We also serve the areas along Highway 18, Highway 80, Highway 471, Highway 43, Grants Ferry Road, and Lake Harbor Road, and the rural property between them.</p>
+
+    <h2>What we see most in Brandon</h2>
+    <h3>Big trees in established neighborhoods</h3>
+    <p>In Crossgates, Castlewoods, and the older parts of town, mature loblolly pines and water oaks tower over one-story houses. Many have outgrown their spots, with limbs over the roof, roots under the driveway, or a lean toward the house that wasn't there ten years ago. These jobs are mostly careful sectional takedowns and roof-clearance trimming.</p>
+    <h3>Golf course and pond lots</h3>
+    <p>Castlewoods is built around a golf course, and several Brandon neighborhoods back up to ponds. Trees on those lots are often reachable only from the back, so access and cleanup take more planning.</p>
+    <h3>Storm damage to tall pines</h3>
+    <p>Wooded neighborhoods on the north side toward the Ross Barnett Reservoir have plenty of tall pines close to houses. After strong storms, snapped tops, uprooted pines, and limbs on roofs are the usual calls. A pine that's already dead or leaning is the one most likely to come down.</p>
+    <h3>New construction and lot clearing</h3>
+    <p>For new homes going up on wooded lots around Brandon, we handle <a href="/land-clearing/">lot clearing</a>, removing pines too close to the planned house, and grinding the stumps left behind.</p>
+
+    <h2>Tree services in Brandon</h2>
+    <ServiceGrid />
+
+    <Faq items={faqs} heading="Brandon tree service questions" />
+
+    <h2>Nearby areas we serve</h2>
+    <AreaList exclude="brandon-ms" />
+
+    <CtaBand heading="Get a free estimate in Brandon" phone={phone} />
+  </div>
+</Base>

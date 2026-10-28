@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ServiceGrid from '../components/ServiceGrid.astro';
+import AreaList from '../components/AreaList.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const faqs = [
+  { q: 'How deep does stump grinding go?', a: 'Typically several inches below the soil surface, deep enough to cover with topsoil and grass. If you\'re planning to build, pour concrete, or plant another tree in the same spot, ask for a deeper grind.' },
+  { q: 'What happens to the grindings?', a: 'Grinding leaves a pile of wood chips and soil. They can be raked back into the hole, spread as mulch, or hauled off. Say which you want when you get the quote.' },
+  { q: 'Will the roots keep growing?', a: 'Most trees, including pines and oaks, won\'t resprout once the stump is ground. A few species, like sweetgum, can send up suckers from the roots for a while. Mowing over them takes care of it.' },
+  { q: 'Can you get a grinder into a fenced backyard?', a: 'Many grinders fit through a standard gate. Measure your narrowest gate opening before you call. It decides which machine can get to the stump.' },
+];
+---
+<Base
+  title="Stump Grinding in Rankin County, MS | Brandon, Pearl, Flowood | Free Estimates"
+  description="Stump grinding and removal in Brandon, Pearl, Flowood, and across Rankin County, MS. Old and new stumps ground below grade so you can mow, plant, or build."
+>
+  <Hero
+    h1="Stump Grinding in Rankin County, MS"
+    lead="Old stumps and fresh ones ground down below grade, so you can mow over the spot, plant grass, or build on it. Book it with a tree removal or on its own."
+    crumb={{ href: '/stump-grinding/', name: 'Stump grinding' }}
+  />
+
+  <div class="wrap content narrow">
+    <h2>Why get rid of a stump</h2>
+    <ul class="checks">
+      <li>It's in the way of mowing, and every pass around it means trimming</li>
+      <li>It's a trip hazard in the yard or near a walkway</li>
+      <li>Rotting stumps attract termites, carpenter ants, and fungus</li>
+      <li>You want to plant, lay sod, put in a patio, or build over the spot</li>
+      <li>It just looks unfinished after a tree removal</li>
+    </ul>
+
+    <h2>Grinding vs. full removal</h2>
+    <p><strong>Grinding</strong> uses a machine with a toothed cutting wheel to chew the stump down below the surface. It's fast, it doesn't tear up the yard, and it's what most homeowners need.</p>
+    <p><strong>Full stump removal</strong> pulls out the stump and its main roots, usually with an excavator. It makes sense when the ground is about to be graded or built on, like a new slab, a pool, or a lot being cleared. It's more disruptive and leaves a bigger hole to fill. See <a href="/land-clearing/">lot and land clearing</a> for that kind of job.</p>
+
+    <h2>What affects the price</h2>
+    <p>Stump grinding is usually priced by the diameter of the stump, measured across the widest part near the ground. Other factors:</p>
+    <ul class="checks">
+      <li><strong>Number of stumps.</strong> Several in one visit cost less per stump.</li>
+      <li><strong>Access.</strong> A stump behind a narrow gate or on a steep bank takes more time.</li>
+      <li><strong>Surface roots.</strong> Grinding out big roots running across the lawn adds to the job.</li>
+      <li><strong>Rocks and debris.</strong> Old fence posts, concrete, or buried metal near the stump slow things down.</li>
+      <li><strong>Cleanup.</strong> Raking the grindings into the hole is standard, while hauling them off may cost extra.</li>
+    </ul>
+    <p>For typical numbers, see the <a href="/tree-removal-cost/">cost guide</a>.</p>
+
+    <h2>Before the grinder shows up</h2>
+    <p>Grinding goes below ground, so underground lines matter. Mississippi 811 will mark public utility lines for free if you call before the job, and it's required for digging. Also point out anything private nearby, like sprinkler lines, low-voltage landscape lighting, or a buried dog fence.</p>
+
+    <h2>Other tree services</h2>
+    <ServiceGrid exclude="/stump-grinding/" />
+
+    <h2>Stump grinding across Rankin County</h2>
+    <AreaList />
+
+    <Faq items={faqs} />
+    <CtaBand heading="Stumps you're tired of mowing around?" text="Call with a rough count and the size of the biggest one for a free quote." />
+  </div>
+</Base>

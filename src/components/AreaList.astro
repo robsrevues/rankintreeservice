@@ -1,0 +1,11 @@
+---
+import { cities } from '../config';
+
+interface Props { exclude?: string }
+const { exclude } = Astro.props;
+---
+<ul class="areas">
+  {cities.filter((c) => c.slug !== exclude).map((c) => (
+    <li>{c.live ? <a href={`/${c.slug}/`}>{c.name}</a> : c.name}</li>
+  ))}
+</ul>

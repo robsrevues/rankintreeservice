@@ -1,0 +1,109 @@
+---
+import '../styles/global.css';
+import { site, services, cities } from '../config';
+
+interface Props {
+  title: string;
+  description: string;
+  phone?: { display: string; tel: string } | null;
+}
+
+const { title, description } = Astro.props;
+const phone = Astro.props.phone ?? site.phones.main;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const path = Astro.url.pathname;
+const liveCities = cities.filter((c) => c.live);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: site.name,
+  serviceType: 'Tree service',
+  url: site.url,
+  telephone: phone.tel,
+  areaServed: [
+    { '@type': 'AdministrativeArea', name: 'Rankin County, Mississippi' },
+    ...liveCities.map((c) => ({ '@type': 'City', name: `${c.name}, Mississippi` })),
+  ],
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#1f3d2b" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 6 15h5l-6 8h9v6h4v-6h9l-6-8h5z" fill="#cfe3d3"/></svg>
+          {site.name}
+        </a>
+        <a class="header-phone" href={`tel:${phone.tel}`}>
+          <span>Call for a free estimate</span>
+          {phone.display}
+        </a>
+      </div>
+    </header>
+    <nav class="site-nav" aria-label="Main">
+      <div class="wrap">
+        <ul>
+          {services.map((s) => (
+            <li><a href={s.href} aria-current={path === s.href ? 'page' : undefined}>{s.name}</a></li>
+          ))}
+          <li><a href="/tree-removal-cost/" aria-current={path === '/tree-removal-cost/' ? 'page' : undefined}>Cost guide</a></li>
+          <li><a href="/contact/" aria-current={path === '/contact/' ? 'page' : undefined}>Free quote</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="cols">
+          <div>
+            <h3>{site.name}</h3>
+            <p>Tree removal, trimming, stump grinding, and storm cleanup across {site.region}.</p>
+            <p><a href={`tel:${phone.tel}`}>{phone.display}</a></p>
+          </div>
+          <div>
+            <h3>Services</h3>
+            <ul>
+              {services.map((s) => <li><a href={s.href}>{s.name}</a></li>)}
+              <li><a href="/tree-removal-cost/">Tree removal cost guide</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Areas served</h3>
+            <ul>
+              {liveCities.map((c) => <li><a href={`/${c.slug}/`}>{c.name}</a></li>)}
+              <li>and the rest of Rankin County</li>
+            </ul>
+          </div>
+        </div>
+        <p class="fine">
+          {site.name} connects Rankin County homeowners with an independent local tree crew.
+          <a href="/about/">How it works</a> · <a href="/contact/">Request a quote</a>
+        </p>
+      </div>
+    </footer>
+
+    <div class="call-bar">
+      <a class="btn-call" href={`tel:${phone.tel}`}>Call {phone.display}</a>
+    </div>
+  </body>
+</html>

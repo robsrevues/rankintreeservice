@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ServiceGrid from '../components/ServiceGrid.astro';
+import AreaList from '../components/AreaList.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const faqs = [
+  { q: 'When is the best time to trim trees?', a: 'Late fall through winter, while most trees are dormant, is ideal for shaping and thinning: less stress on the tree and you can see the branch structure. Dead, broken, or hazardous limbs should come off whenever you notice them.' },
+  { q: 'Can you trim limbs over my roof without damaging it?', a: 'Yes. Limbs over a house are cut in small pieces and lowered by rope rather than dropped.' },
+  { q: 'Will you "top" my tree to make it shorter?', a: 'We don\'t recommend topping. Cutting the top out of a tree causes a flush of weak, fast-growing shoots and often leads to rot. If a tree is genuinely too big for its spot, thinning or removal is usually the better answer.' },
+  { q: 'Do you trim around power lines?', a: 'The line from the pole to your house, yes, with care. Limbs touching the main distribution lines along the street are the utility\'s responsibility, so call them for those.' },
+];
+---
+<Base
+  title="Tree Trimming in Rankin County, MS | Brandon, Pearl, Flowood | Free Estimates"
+  description="Tree trimming and pruning in Brandon, Pearl, Flowood, and across Rankin County, MS. Limbs off the roof, dead wood removed, clearance over driveways. Free estimates."
+>
+  <Hero
+    h1="Tree Trimming in Rankin County, MS"
+    lead="Limbs off the roof, dead wood out of the canopy, and clearance over the driveway and yard. Trimming that keeps good trees healthy and keeps them from becoming a problem."
+    crumb={{ href: '/tree-trimming/', name: 'Tree trimming' }}
+  />
+
+  <div class="wrap content narrow">
+    <h2>What trimming covers</h2>
+    <ul class="checks">
+      <li><strong>Roof clearance:</strong> removing limbs that hang over or rub the roof, which also cuts down on clogged gutters and gives squirrels fewer ways onto the house</li>
+      <li><strong>Deadwood removal:</strong> taking out dead and dying branches before they fall</li>
+      <li><strong>Raising the canopy:</strong> lifting low limbs over driveways, sidewalks, and play areas</li>
+      <li><strong>Thinning:</strong> opening up a dense crown so wind passes through and more light reaches the lawn</li>
+      <li><strong>Service line clearance:</strong> clearing limbs away from the line running from the pole to your house</li>
+      <li><strong>Storm-damage cleanup:</strong> cutting out broken and hanging limbs after bad weather</li>
+    </ul>
+
+    <h2>Trimming vs. removal</h2>
+    <p>If the trunk and roots are sound, trimming is almost always the cheaper, better option. A healthy oak with one bad limb over the house needs that limb gone, not the whole tree. Removal makes sense when the problem is the tree itself: rot in the trunk, a failing root system, a dead or dying pine, or a tree that's simply outgrown its spot. When you get an estimate, ask which one makes sense for each tree. You should get a straight answer.</p>
+
+    <h2>Good cuts matter</h2>
+    <p>A proper cut is made just outside the branch collar, the slightly swollen ring where a limb joins the trunk. That lets the tree seal the wound. Flush cuts and leftover stubs invite rot and insects. Topping, cutting the top off a tree to shorten it, does lasting damage. What you're paying for is a crew that knows the difference.</p>
+
+    <h2>How often to trim</h2>
+    <p>For most yard trees, a check-up every three to five years is plenty. Fast growers like water oaks and sweetgums near a house may need attention more often. Any time a big storm brings down limbs, it's worth looking up for broken branches still hanging in the canopy.</p>
+
+    <h2>Other tree services</h2>
+    <ServiceGrid exclude="/tree-trimming/" />
+
+    <h2>Tree trimming across Rankin County</h2>
+    <AreaList />
+
+    <Faq items={faqs} />
+    <CtaBand />
+  </div>
+</Base>

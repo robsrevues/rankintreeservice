@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import ServiceGrid from '../components/ServiceGrid.astro';
+import AreaList from '../components/AreaList.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { site } from '../config';
+
+const phone = site.phones.flowood ?? site.phones.main;
+
+const faqs = [
+  { q: 'My subdivision has an HOA. Do I need approval to remove a tree?', a: 'Many Flowood subdivisions have covenants that cover trees, especially in front yards. Check with your HOA first. A written estimate from the crew can go along with your approval request.' },
+  { q: 'Can a crew work in a gated neighborhood?', a: 'Yes. Just arrange gate access, or a code for the day, when the job is scheduled.' },
+  { q: 'We\'re building in a new Flowood subdivision. Can you clear the lot?', a: 'Yes. See <a href="/land-clearing/">lot and land clearing</a>. It\'s common to clear brush and remove pines too close to the planned house while keeping the best trees for shade.' },
+  { q: 'Do you work near the Reservoir?', a: 'Yes, all the way up Lakeland Drive and into the Reservoir-side neighborhoods. See our <a href="/brandon-ms/">Brandon page</a> for the neighborhoods on that side.' },
+];
+---
+<Base
+  title="Tree Service in Flowood, MS | Tree Removal, Trimming & Stumps | Free Estimates"
+  description="Tree removal, trimming, stump grinding, and storm cleanup in Flowood, MS, from Laurelwood and Dogwood to Kensington and the newer subdivisions off Lakeland Drive. Free estimates."
+  phone={phone}
+>
+  <Hero
+    h1="Tree Service in Flowood, MS"
+    lead="Tree removal, trimming, stump grinding, and storm cleanup across Flowood, from the established streets in Laurelwood to the newer subdivisions along the Lakeland Drive corridor."
+    crumb={{ href: '/flowood-ms/', name: 'Flowood' }}
+    phone={phone}
+  />
+
+  <div class="wrap content narrow">
+    <h2>Tree work for Flowood homes</h2>
+    <p>Flowood is home to about 11,000 people and has grown quickly in recent years. Lakeland Drive (Highway 25) runs through the middle of it, connecting Jackson to the Reservoir area, with Dogwood and Liberty Park along the way. Homes range from established neighborhoods to new subdivisions still under construction. That shapes the tree work: careful trimming and removals around well-kept homes and landscaping, and lot work where new houses are going in.</p>
+
+    <h2>Neighborhoods we serve in Flowood</h2>
+    <ul class="areas">
+      <li>Laurelwood</li>
+      <li>Laurelwood Estates</li>
+      <li>Dogwood</li>
+      <li>Oakridge</li>
+      <li>Kensington</li>
+      <li>Bristol Crossing</li>
+      <li>Latter Rayne</li>
+      <li>Indian Creek</li>
+      <li>Abundance Pointe</li>
+      <li>Les Maisons</li>
+      <li>Waterpointe</li>
+      <li>Lineage Lake</li>
+      <li>Mirror Lake</li>
+      <li>Stockton Place</li>
+      <li>Bradford Place</li>
+      <li>Lost Pine</li>
+      <li>Pinehaven</li>
+    </ul>
+    <p>We also cover the homes and businesses along Lakeland Drive, Flowood Drive, and the roads running toward the Reservoir.</p>
+
+    <h2>What we see most in Flowood</h2>
+    <h3>Trees around finished landscaping</h3>
+    <p>A lot of Flowood homes have pools, patios, irrigation, and planted beds right under the trees. Removals and trimming there mean lowering everything by rope, protecting the lawn and hardscape, and leaving the yard as clean as it was.</p>
+    <h3>Pines left standing in new subdivisions</h3>
+    <p>When subdivisions are cut out of pine woods, some trees get left between houses. Those pines, now standing alone, catch more wind than they grew up with, and grading can damage their roots. Over the first few years, many decline or start to lean. Watch for browning needles, a thinning crown, or a fresh lean, and have them looked at early.</p>
+    <h3>Lot clearing for new builds</h3>
+    <p>With homes still going up around Flowood, <a href="/land-clearing/">lot clearing</a> and removing trees too close to a planned house are steady work, followed by <a href="/stump-grinding/">stump grinding</a> before sod goes down.</p>
+
+    <h2>Tree services in Flowood</h2>
+    <ServiceGrid />
+
+    <Faq items={faqs} heading="Flowood tree service questions" />
+
+    <h2>Nearby areas we serve</h2>
+    <AreaList exclude="flowood-ms" />
+
+    <CtaBand heading="Get a free estimate in Flowood" phone={phone} />
+  </div>
+</Base>

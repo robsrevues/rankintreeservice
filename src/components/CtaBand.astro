@@ -1,0 +1,19 @@
+---
+import { site } from '../config';
+
+interface Props {
+  heading?: string;
+  text?: string;
+  phone?: { display: string; tel: string } | null;
+}
+const {
+  heading = 'Get a free estimate',
+  text = 'Tell us what the tree is doing and where it is. Photos help us quote faster.',
+} = Astro.props;
+const phone = Astro.props.phone ?? site.phones.main;
+---
+<section class="cta-band">
+  <h2>{heading}</h2>
+  <p>{text}</p>
+  <a class="btn-call" href={`tel:${phone.tel}`}>Call {phone.display}</a>
+</section>

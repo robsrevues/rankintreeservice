@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import { site } from '../config';
+const phone = site.phones.main;
+---
+<Base
+  title="Free Tree Service Quote | Rankin Tree Service | Rankin County, MS"
+  description="Request a free estimate for tree removal, trimming, stump grinding, or storm cleanup anywhere in Rankin County, MS."
+>
+  <section class="hero">
+    <div class="wrap">
+      <p class="crumbs"><a href="/">Home</a> › <a href="/contact/">Free quote</a></p>
+      <h1>Get a Free Tree Service Quote</h1>
+      <p class="lead">The fastest way is to call <a href={`tel:${phone.tel}`}>{phone.display}</a>. If you'd rather write it out, send the details below. Photos help get you a faster, more accurate price.</p>
+    </div>
+  </section>
+
+  <div class="wrap content narrow">
+    <h2>Request an estimate</h2>
+    <QuoteForm />
+
+    <h2>Tips for good photos</h2>
+    <ul class="checks">
+      <li>One shot of the whole tree from far enough back to see the top</li>
+      <li>One showing what's around it: the house, fence, driveway, or power lines</li>
+      <li>A close-up of any damage, like a split, a cavity, mushrooms at the base, or a hanging limb</li>
+      <li>For stumps, a photo with something for scale, like a shoe or a tape measure</li>
+    </ul>
+
+    <p><strong>Tree on a house or across a power line?</strong> Call instead of using the form, and contact the power company first for any downed line.</p>
+  </div>
+</Base>

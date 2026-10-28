@@ -64,12 +64,34 @@ li { margin-bottom: 0.35em; }
 .btn-ghost { display: inline-block; padding: 13px 20px; border: 2px solid currentColor; border-radius: var(--radius); font-weight: 700; text-decoration: none; }
 
 /* Hero */
-.hero { background: var(--moss); border-bottom: 1px solid var(--rule); padding: 40px 0 36px; }
-.hero .lead { font-size: 1.2rem; color: var(--muted); max-width: 640px; }
+.hero {
+  position: relative;
+  color: #fff;
+  padding: 48px 0 44px;
+  background-color: var(--pine-deep);
+  background-image:
+    linear-gradient(90deg, rgba(20, 42, 29, 0.94) 0%, rgba(20, 42, 29, 0.82) 55%, rgba(20, 42, 29, 0.55) 100%),
+    url('/hero-pines-tall.webp');
+  background-size: cover;
+  background-position: center 30%;
+}
+@media (min-width: 720px) {
+  .hero {
+    padding: 64px 0 60px;
+    background-image:
+      linear-gradient(90deg, rgba(20, 42, 29, 0.94) 0%, rgba(20, 42, 29, 0.8) 50%, rgba(20, 42, 29, 0.35) 100%),
+      url('/hero-pines-wide.webp');
+  }
+}
+.hero h1 { color: #fff; max-width: 760px; }
+.hero .lead { font-size: 1.2rem; color: #dfe9e1; max-width: 640px; }
+.hero .lead a { color: #fff; }
+.hero .btn-ghost { color: #fff; }
+.hero .btn-ghost:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 20px; }
-.hero-note { font-size: 0.92rem; color: var(--muted); margin-top: 12px; }
-.crumbs { font-size: 0.85rem; color: var(--muted); margin-bottom: 12px; }
-.crumbs a { color: var(--muted); }
+.hero-note { font-size: 0.92rem; color: #c9d6cc; margin-top: 12px; }
+.crumbs { font-size: 0.85rem; color: #c9d6cc; margin-bottom: 12px; }
+.crumbs a { color: #c9d6cc; }
 
 main { padding-bottom: 48px; }
 .content { padding-top: 8px; }

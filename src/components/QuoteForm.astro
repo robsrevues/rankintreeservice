@@ -24,6 +24,7 @@ const phone = site.phones.main;
     <button class="btn-call" type="submit">Send my request</button>
   </form>
 ) : (
-  <p>Online requests are coming soon. For now, the fastest way to a quote is to call
-  <a href={`tel:${phone.tel}`}>{phone.display}</a>.</p>
+  <p>Online requests are coming soon. For now, call
+  <a href={`tel:${phone.tel}`}>{phone.display}</a>, or
+  <a href={`sms:${phone.tel}`}>text photos and your nearest cross street</a> to the same number.</p>
 )}

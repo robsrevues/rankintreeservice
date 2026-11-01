@@ -6,26 +6,54 @@ interface Props {
   title: string;
   description: string;
   phone?: { display: string; tel: string } | null;
+  /** Service this page is about, e.g. "Tree removal". Omit for general pages. */
+  serviceType?: string;
+  /** Town this page targets, e.g. "Brandon". Omit for county-wide pages. */
+  city?: string;
+  /** Breadcrumb label for this page. Omit on the homepage. */
+  crumb?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, serviceType, city, crumb } = Astro.props;
 const phone = Astro.props.phone ?? site.phones.main;
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const path = Astro.url.pathname;
 const liveCities = cities.filter((c) => c.live);
 
-const schema = {
-  '@context': 'https://schema.org',
+const areaServed = city
+  ? [{ '@type': 'City', name: `${city}, Mississippi` }]
+  : [
+      { '@type': 'AdministrativeArea', name: 'Rankin County, Mississippi' },
+      ...liveCities.map((c) => ({ '@type': 'City', name: `${c.name}, Mississippi` })),
+    ];
+
+const service = {
   '@type': 'Service',
-  name: site.name,
-  serviceType: 'Tree service',
-  url: site.url,
-  telephone: phone.tel,
-  areaServed: [
-    { '@type': 'AdministrativeArea', name: 'Rankin County, Mississippi' },
-    ...liveCities.map((c) => ({ '@type': 'City', name: `${c.name}, Mississippi` })),
-  ],
+  '@id': `${canonical}#service`,
+  name: serviceType ? `${serviceType} in ${city ?? 'Rankin County'}, MS` : title.split(' | ')[0],
+  serviceType: serviceType ?? 'Tree service',
+  url: canonical,
+  areaServed,
+  provider: {
+    '@type': 'Organization',
+    '@id': `${site.url}/#org`,
+    name: site.name,
+    url: `${site.url}/`,
+    telephone: phone.tel,
+  },
 };
+
+const graph: object[] = [service];
+if (crumb) {
+  graph.push({
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: crumb, item: canonical },
+    ],
+  });
+}
+const schema = { '@context': 'https://schema.org', '@graph': graph };
 ---
 <!doctype html>
 <html lang="en">
@@ -104,6 +132,7 @@ const schema = {
 
     <div class="call-bar">
       <a class="btn-call" href={`tel:${phone.tel}`}>Call {phone.display}</a>
+      <a class="btn-text" href={`sms:${phone.tel}`}>Text photos</a>
     </div>
   </body>
 </html>

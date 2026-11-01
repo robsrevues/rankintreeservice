@@ -21,6 +21,6 @@ const phone = Astro.props.phone ?? site.phones.main;
       <a class="btn-call" href={`tel:${phone.tel}`}>Call {phone.display}</a>
       <a class="btn-ghost" href="/contact/">Request a free quote</a>
     </div>
-    <p class="hero-note">Free estimates. Send photos and get a faster answer.</p>
+    <p class="hero-note">Free estimates. <a href={`sms:${phone.tel}`}>Text photos to {phone.display}</a> for a faster answer.</p>
   </div>
 </section>

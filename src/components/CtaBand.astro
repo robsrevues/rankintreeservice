@@ -15,5 +15,8 @@ const phone = Astro.props.phone ?? site.phones.main;
 <section class="cta-band">
   <h2>{heading}</h2>
   <p>{text}</p>
-  <a class="btn-call" href={`tel:${phone.tel}`}>Call {phone.display}</a>
+  <div class="cta-actions">
+    <a class="btn-call" href={`tel:${phone.tel}`}>Call {phone.display}</a>
+    <a class="btn-ghost" href={`sms:${phone.tel}`}>Text photos</a>
+  </div>
 </section>

@@ -52,14 +52,22 @@ const tree = (x: number, y: number, size: number) => {
     <g class="pines pines-back">
       {back.map(([x, y, h], i) => {
         const t = tree(x, y, h);
-        return <use href="#pine" x={t.x} y={t.y} width={t.w} height={t.h} style={`--d:${(i % 5) * 70 + 250}ms`} />;
+        return (
+          <g class="pine" style={`transform-origin:${x}px ${y}px;--d:${(i % 5) * 70 + 250}ms`}>
+            <use href="#pine" x={t.x} y={t.y} width={t.w} height={t.h} />
+          </g>
+        );
       })}
     </g>
     <path class="hill hill-front" d="M0 200 V164 C 240 148 430 154 650 162 S 990 172 1190 154 S 1380 148 1440 156 V200 Z" />
     <g class="pines pines-front">
       {front.map(([x, y, h], i) => {
         const t = tree(x, y, h);
-        return <use href="#pine" x={t.x} y={t.y} width={t.w} height={t.h} style={`--d:${(i % 4) * 80 + 420}ms`} />;
+        return (
+          <g class="pine" style={`transform-origin:${x}px ${y}px;--d:${(i % 4) * 80 + 420}ms`}>
+            <use href="#pine" x={t.x} y={t.y} width={t.w} height={t.h} />
+          </g>
+        );
       })}
     </g>
   </svg>
@@ -110,13 +118,19 @@ const tree = (x: number, y: number, size: number) => {
   @media (prefers-reduced-motion: no-preference) {
     .hill { animation: rise 1.2s cubic-bezier(0.22, 1, 0.36, 1) both; }
     .hill-front { animation-delay: 120ms; }
-    .pines use {
-      transform-box: fill-box;
-      transform-origin: 50% 100%;
-      animation: grow 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    /* Each pine grows from its own trunk base (transform-origin is set inline
+       in scene units): sprouts as a sapling, holds a beat, then grows to full size. */
+    .pine {
+      transform-box: view-box;
+      animation: grow 1500ms both;
       animation-delay: var(--d, 300ms);
     }
   }
   @keyframes rise { from { transform: translateY(40px); } to { transform: none; } }
-  @keyframes grow { from { transform: scaleY(0); } to { transform: none; } }
+  @keyframes grow {
+    0%   { transform: scale(0); animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); }
+    22%  { transform: scale(0.3); animation-timing-function: linear; }
+    38%  { transform: scale(0.32); animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+    100% { transform: scale(1); }
+  }
 </style>

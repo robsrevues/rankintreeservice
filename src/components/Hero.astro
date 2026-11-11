@@ -9,11 +9,28 @@ interface Props {
 }
 const { h1, lead, crumb } = Astro.props;
 const phone = Astro.props.phone ?? site.phones.main;
+
+// Pine placements on the 1440×200 hill scene: [x, baseline y, height, row]
+// Back row sits behind the front hill so its trunks are hidden; front row stands on it.
+const back = [
+  [36, 150, 62], [70, 152, 48], [300, 146, 44], [612, 150, 52], [646, 152, 40],
+  [880, 148, 58], [916, 150, 44], [1180, 146, 50], [1214, 150, 64], [1250, 152, 42],
+];
+const front = [
+  [120, 182, 70], [160, 186, 52], [470, 186, 46], [760, 188, 60], [792, 190, 44],
+  [1060, 184, 74], [1100, 188, 52], [1340, 182, 66], [1378, 186, 50],
+];
+const tree = (x: number, y: number, size: number) => {
+  const h = size * 1.2;
+  return { x: x - h * 0.2, y: y - h, w: h * 0.4, h };
+};
 ---
 <section class="hero">
-  <div class="wrap">
-    {crumb && (
+  <div class="wrap hero-copy">
+    {crumb ? (
       <p class="crumbs"><a href="/">Home</a> › <a href={crumb.href}>{crumb.name}</a></p>
+    ) : (
+      <p class="eyebrow">Free estimates across Rankin County</p>
     )}
     <h1>{h1}</h1>
     <p class="lead">{lead}</p>
@@ -23,4 +40,83 @@ const phone = Astro.props.phone ?? site.phones.main;
     </div>
     <p class="hero-note">Free estimates. <a href={`sms:${phone.tel}`}>Text photos to {phone.display}</a> for a faster answer.</p>
   </div>
+
+  <svg class="hills" viewBox="0 0 1440 200" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="pine" viewBox="0 0 40 100" preserveAspectRatio="none">
+        <rect x="18" y="84" width="4" height="16" />
+        <polygon points="20,0 31,24 26,24 35,48 29,48 40,82 0,82 11,48 5,48 14,24 9,24" />
+      </symbol>
+    </defs>
+    <path class="hill hill-back" d="M0 200 V134 C 180 116 340 112 520 124 S 860 142 1040 122 S 1320 110 1440 126 V200 Z" />
+    <g class="pines pines-back">
+      {back.map(([x, y, h], i) => {
+        const t = tree(x, y, h);
+        return <use href="#pine" x={t.x} y={t.y} width={t.w} height={t.h} style={`--d:${(i % 5) * 70 + 250}ms`} />;
+      })}
+    </g>
+    <path class="hill hill-front" d="M0 200 V164 C 240 148 430 154 650 162 S 990 172 1190 154 S 1380 148 1440 156 V200 Z" />
+    <g class="pines pines-front">
+      {front.map(([x, y, h], i) => {
+        const t = tree(x, y, h);
+        return <use href="#pine" x={t.x} y={t.y} width={t.w} height={t.h} style={`--d:${(i % 4) * 80 + 420}ms`} />;
+      })}
+    </g>
+  </svg>
 </section>
+
+<style>
+  .hero {
+    --cream: #f3efe4;
+    --hill-back: #c3d1b4;
+    --hill-front: #9fb68f;
+    --pine-back: #7d9a72;
+    --pine-front: #4f7048;
+    position: relative;
+    overflow: hidden;
+    background: var(--cream);
+    color: var(--pine-deep);
+    padding: 40px 0 clamp(160px, 16vw, 200px);
+  }
+  @media (min-width: 720px) { .hero { padding-top: 64px; } }
+
+  .hero-copy { position: relative; z-index: 1; }
+  .eyebrow {
+    display: inline-block;
+    margin: 0 0 14px;
+    font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #3f6b47;
+  }
+  .hero h1 { color: var(--pine-deep); max-width: 760px; }
+  .hero .lead { font-size: 1.2rem; color: #3d4c42; max-width: 640px; }
+  .hero .btn-ghost { color: var(--pine-deep); }
+  .hero .btn-ghost:hover { background: rgba(31, 61, 43, 0.08); color: var(--pine-deep); }
+  .hero-note { font-size: 0.92rem; color: var(--muted); margin-top: 12px; }
+  .hero .hero-note a { color: var(--pine); font-weight: 600; }
+  .crumbs { font-size: 0.85rem; color: var(--muted); margin-bottom: 12px; }
+  .crumbs a { color: var(--pine); }
+
+  /* Hills + pines */
+  .hills {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    width: 100%; height: clamp(150px, 14vw, 190px);
+    display: block;
+  }
+  .hill-back { fill: var(--hill-back); }
+  .hill-front { fill: var(--hill-front); }
+  .pines-back { fill: var(--pine-back); }
+  .pines-front { fill: var(--pine-front); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hill { animation: rise 1.2s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .hill-front { animation-delay: 120ms; }
+    .pines use {
+      transform-box: fill-box;
+      transform-origin: 50% 100%;
+      animation: grow 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: var(--d, 300ms);
+    }
+  }
+  @keyframes rise { from { transform: translateY(40px); } to { transform: none; } }
+  @keyframes grow { from { transform: scaleY(0); } to { transform: none; } }
+</style>
